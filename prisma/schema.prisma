@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//* Enums 
+enum QuestionType {
+  MCQ_SINGLE
+  MCQ_MULTI
+  TRUE_FALSE
+  SHORT_ANSWER
+  NUMERICAL
+}
+
+enum QuizResultState {
+  IN_PROGRESS
+  HOST_ONLY
+  OPEN_TO_ALL
+}
+
+//* Models
+model User {
+  id            String        @id @default(uuid())
+  name          String
+  email         String        @unique
+  hostedQuizzes Quiz[]        @relation("QuizHost")
+  userAnswers   UserAnswers[]
+}
+
+model Quiz {
+  id                String              @id @default(uuid())
+  name              String
+  level             Int
+  topics            String[]
+  resultState       QuizResultState
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  hostId            String
+  host              User                @relation("QuizHost", fields: [hostId], references: [id])
+  userAnswers       UserAnswers[]
+  QuestionAndAnswer QuestionAndAnswer[]
+}
+
+model QuestionAndAnswer {
+  id             String       @id @default(uuid())
+  text           String
+  type           QuestionType
+  options        String[]
+  correctAnswer  String?
+  correctOptions String[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  quizId         String
+  quiz           Quiz         @relation(fields: [quizId], references: [id])
+}
+
+model Answer {
+  id                String       @id @default(uuid())
+  type              QuestionType
+  submittedAnswer   String?
+  submittedOptions  String[]
+  isCorrect         Boolean
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+  questionId        String
+  UserAnswers       UserAnswers @relation(fields: [userAnswersId], references: [id])
+  userAnswersId     String
+}
+
+model UserAnswers {
+  id            String      @id @default(uuid())
+  userId        String
+  quizId        String
+  user          User     @relation(fields: [userId], references: [id])
+  quiz          Quiz     @relation(fields: [quizId], references: [id])
+  collectedInfo String
+  answers       Answer[]
+}
