@@ -6,7 +6,7 @@ enum QuestionType {
   NUMERICAL = "NUMERICAL",
 }
 
-interface MCQSingleQuestion {
+interface MCQSingleQuestionType {
   icon: "check-circle";
   color: "purple";
   text: string;
@@ -15,7 +15,7 @@ interface MCQSingleQuestion {
   correctAnswer: string;
 }
 
-interface MCQMultiQuestion {
+interface MCQMultiQuestionType {
   icon: "check-square";
   color: "purple";
   text: string;
@@ -24,7 +24,7 @@ interface MCQMultiQuestion {
   correctOptions: string[];
 }
 
-interface TrueFalseQuestion {
+interface TrueFalseQuestionType {
   icon: "toggle-right";
   color: "purple";
   text: string;
@@ -32,14 +32,14 @@ interface TrueFalseQuestion {
   correctAnswer: boolean;
 }
 
-interface ShortAnswerQuestion {
+interface ShortAnswerQuestionType {
   icon: "edit-3";
   color: "purple";
   text: string;
   type: QuestionType.SHORT_ANSWER;
 }
 
-interface NumericalQuestion {
+interface NumericalQuestionType {
   icon: "hash";
   color: "purple";
   text: string;
@@ -47,13 +47,6 @@ interface NumericalQuestion {
   correctAnswer: number;
 }
 
-enum Question {
-  MCQ_SINGLE = "MCQ_SINGLE",
-  MCQ_MULTI = "MCQ_MULTI",
-  TRUE_FALSE = "TRUE_FALSE",
-  SHORT_ANSWER = "SHORT_ANSWER",
-  NUMERICAL = "NUMERICAL",
-}
 
-export type { QuestionType, MCQSingleQuestion, MCQMultiQuestion, TrueFalseQuestion, ShortAnswerQuestion, NumericalQuestion };
-export {type Question};
+
+export type { QuestionType as typeOfQuestionType, MCQSingleQuestionType, MCQMultiQuestionType, TrueFalseQuestionType, ShortAnswerQuestionType, NumericalQuestionType };

@@ -1,5 +1,5 @@
-import { QuestionType } from "./questionTypes";
-import type { MCQSingleQuestion, MCQMultiQuestion, TrueFalseQuestion, ShortAnswerQuestion, NumericalQuestion, Question } from "./questionTypes";
+import { typeOfQuestionType } from "./questionTypes";
+import type { MCQSingleQuestionType, MCQMultiQuestionType, TrueFalseQuestionType, ShortAnswerQuestionType, NumericalQuestionType } from "./questionTypes";
 
-export type { MCQSingleQuestion, MCQMultiQuestion, TrueFalseQuestion, ShortAnswerQuestion, NumericalQuestion, Question };
-export  type { QuestionType };
+export type { MCQSingleQuestionType, MCQMultiQuestionType, TrueFalseQuestionType, ShortAnswerQuestionType, NumericalQuestionType};
+export type { typeOfQuestionType };
