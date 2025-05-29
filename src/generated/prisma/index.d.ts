@@ -1390,18 +1390,27 @@ export namespace Prisma {
     id: string | null
     name: string | null
     email: string | null
+    host: boolean | null
+    password: string | null
+    collectedInfo: string | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: string | null
     name: string | null
     email: string | null
+    host: boolean | null
+    password: string | null
+    collectedInfo: string | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     name: number
     email: number
+    host: number
+    password: number
+    collectedInfo: number
     _all: number
   }
 
@@ -1410,18 +1419,27 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    host?: true
+    password?: true
+    collectedInfo?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     name?: true
     email?: true
+    host?: true
+    password?: true
+    collectedInfo?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     name?: true
     email?: true
+    host?: true
+    password?: true
+    collectedInfo?: true
     _all?: true
   }
 
@@ -1501,6 +1519,9 @@ export namespace Prisma {
     id: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1524,6 +1545,9 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    host?: boolean
+    password?: boolean
+    collectedInfo?: boolean
     hostedQuizzes?: boolean | User$hostedQuizzesArgs<ExtArgs>
     userAnswers?: boolean | User$userAnswersArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1533,21 +1557,30 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    host?: boolean
+    password?: boolean
+    collectedInfo?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
+    host?: boolean
+    password?: boolean
+    collectedInfo?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
     name?: boolean
     email?: boolean
+    host?: boolean
+    password?: boolean
+    collectedInfo?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "host" | "password" | "collectedInfo", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     hostedQuizzes?: boolean | User$hostedQuizzesArgs<ExtArgs>
     userAnswers?: boolean | User$userAnswersArgs<ExtArgs>
@@ -1566,6 +1599,9 @@ export namespace Prisma {
       id: string
       name: string
       email: string
+      host: boolean
+      password: string
+      collectedInfo: string
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1994,6 +2030,9 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
+    readonly host: FieldRef<"User", 'Boolean'>
+    readonly password: FieldRef<"User", 'String'>
+    readonly collectedInfo: FieldRef<"User", 'String'>
   }
     
 
@@ -5855,21 +5894,18 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     quizId: string | null
-    collectedInfo: string | null
   }
 
   export type UserAnswersMaxAggregateOutputType = {
     id: string | null
     userId: string | null
     quizId: string | null
-    collectedInfo: string | null
   }
 
   export type UserAnswersCountAggregateOutputType = {
     id: number
     userId: number
     quizId: number
-    collectedInfo: number
     _all: number
   }
 
@@ -5878,21 +5914,18 @@ export namespace Prisma {
     id?: true
     userId?: true
     quizId?: true
-    collectedInfo?: true
   }
 
   export type UserAnswersMaxAggregateInputType = {
     id?: true
     userId?: true
     quizId?: true
-    collectedInfo?: true
   }
 
   export type UserAnswersCountAggregateInputType = {
     id?: true
     userId?: true
     quizId?: true
-    collectedInfo?: true
     _all?: true
   }
 
@@ -5972,7 +6005,6 @@ export namespace Prisma {
     id: string
     userId: string
     quizId: string
-    collectedInfo: string
     _count: UserAnswersCountAggregateOutputType | null
     _min: UserAnswersMinAggregateOutputType | null
     _max: UserAnswersMaxAggregateOutputType | null
@@ -5996,7 +6028,6 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     quizId?: boolean
-    collectedInfo?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     quiz?: boolean | QuizDefaultArgs<ExtArgs>
     answers?: boolean | UserAnswers$answersArgs<ExtArgs>
@@ -6007,7 +6038,6 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     quizId?: boolean
-    collectedInfo?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     quiz?: boolean | QuizDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userAnswers"]>
@@ -6016,7 +6046,6 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     quizId?: boolean
-    collectedInfo?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     quiz?: boolean | QuizDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userAnswers"]>
@@ -6025,10 +6054,9 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     quizId?: boolean
-    collectedInfo?: boolean
   }
 
-  export type UserAnswersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "quizId" | "collectedInfo", ExtArgs["result"]["userAnswers"]>
+  export type UserAnswersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "quizId", ExtArgs["result"]["userAnswers"]>
   export type UserAnswersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     quiz?: boolean | QuizDefaultArgs<ExtArgs>
@@ -6055,7 +6083,6 @@ export namespace Prisma {
       id: string
       userId: string
       quizId: string
-      collectedInfo: string
     }, ExtArgs["result"]["userAnswers"]>
     composites: {}
   }
@@ -6485,7 +6512,6 @@ export namespace Prisma {
     readonly id: FieldRef<"UserAnswers", 'String'>
     readonly userId: FieldRef<"UserAnswers", 'String'>
     readonly quizId: FieldRef<"UserAnswers", 'String'>
-    readonly collectedInfo: FieldRef<"UserAnswers", 'String'>
   }
     
 
@@ -6941,7 +6967,10 @@ export namespace Prisma {
   export const UserScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    email: 'email'
+    email: 'email',
+    host: 'host',
+    password: 'password',
+    collectedInfo: 'collectedInfo'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -6994,8 +7023,7 @@ export namespace Prisma {
   export const UserAnswersScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    quizId: 'quizId',
-    collectedInfo: 'collectedInfo'
+    quizId: 'quizId'
   };
 
   export type UserAnswersScalarFieldEnum = (typeof UserAnswersScalarFieldEnum)[keyof typeof UserAnswersScalarFieldEnum]
@@ -7041,6 +7069,13 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -7101,13 +7136,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7131,6 +7159,9 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
+    host?: BoolFilter<"User"> | boolean
+    password?: StringFilter<"User"> | string
+    collectedInfo?: StringFilter<"User"> | string
     hostedQuizzes?: QuizListRelationFilter
     userAnswers?: UserAnswersListRelationFilter
   }
@@ -7139,6 +7170,9 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    host?: SortOrder
+    password?: SortOrder
+    collectedInfo?: SortOrder
     hostedQuizzes?: QuizOrderByRelationAggregateInput
     userAnswers?: UserAnswersOrderByRelationAggregateInput
   }
@@ -7150,6 +7184,9 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
+    host?: BoolFilter<"User"> | boolean
+    password?: StringFilter<"User"> | string
+    collectedInfo?: StringFilter<"User"> | string
     hostedQuizzes?: QuizListRelationFilter
     userAnswers?: UserAnswersListRelationFilter
   }, "id" | "email">
@@ -7158,6 +7195,9 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    host?: SortOrder
+    password?: SortOrder
+    collectedInfo?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -7170,6 +7210,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
+    host?: BoolWithAggregatesFilter<"User"> | boolean
+    password?: StringWithAggregatesFilter<"User"> | string
+    collectedInfo?: StringWithAggregatesFilter<"User"> | string
   }
 
   export type QuizWhereInput = {
@@ -7407,7 +7450,6 @@ export namespace Prisma {
     id?: StringFilter<"UserAnswers"> | string
     userId?: StringFilter<"UserAnswers"> | string
     quizId?: StringFilter<"UserAnswers"> | string
-    collectedInfo?: StringFilter<"UserAnswers"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     quiz?: XOR<QuizScalarRelationFilter, QuizWhereInput>
     answers?: AnswerListRelationFilter
@@ -7417,7 +7459,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     quizId?: SortOrder
-    collectedInfo?: SortOrder
     user?: UserOrderByWithRelationInput
     quiz?: QuizOrderByWithRelationInput
     answers?: AnswerOrderByRelationAggregateInput
@@ -7430,7 +7471,6 @@ export namespace Prisma {
     NOT?: UserAnswersWhereInput | UserAnswersWhereInput[]
     userId?: StringFilter<"UserAnswers"> | string
     quizId?: StringFilter<"UserAnswers"> | string
-    collectedInfo?: StringFilter<"UserAnswers"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     quiz?: XOR<QuizScalarRelationFilter, QuizWhereInput>
     answers?: AnswerListRelationFilter
@@ -7440,7 +7480,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     quizId?: SortOrder
-    collectedInfo?: SortOrder
     _count?: UserAnswersCountOrderByAggregateInput
     _max?: UserAnswersMaxOrderByAggregateInput
     _min?: UserAnswersMinOrderByAggregateInput
@@ -7453,13 +7492,15 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"UserAnswers"> | string
     userId?: StringWithAggregatesFilter<"UserAnswers"> | string
     quizId?: StringWithAggregatesFilter<"UserAnswers"> | string
-    collectedInfo?: StringWithAggregatesFilter<"UserAnswers"> | string
   }
 
   export type UserCreateInput = {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     hostedQuizzes?: QuizCreateNestedManyWithoutHostInput
     userAnswers?: UserAnswersCreateNestedManyWithoutUserInput
   }
@@ -7468,6 +7509,9 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     hostedQuizzes?: QuizUncheckedCreateNestedManyWithoutHostInput
     userAnswers?: UserAnswersUncheckedCreateNestedManyWithoutUserInput
   }
@@ -7476,6 +7520,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
     hostedQuizzes?: QuizUpdateManyWithoutHostNestedInput
     userAnswers?: UserAnswersUpdateManyWithoutUserNestedInput
   }
@@ -7484,6 +7531,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
     hostedQuizzes?: QuizUncheckedUpdateManyWithoutHostNestedInput
     userAnswers?: UserAnswersUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -7492,18 +7542,27 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type QuizCreateInput = {
@@ -7758,7 +7817,6 @@ export namespace Prisma {
 
   export type UserAnswersCreateInput = {
     id?: string
-    collectedInfo: string
     user: UserCreateNestedOneWithoutUserAnswersInput
     quiz: QuizCreateNestedOneWithoutUserAnswersInput
     answers?: AnswerCreateNestedManyWithoutUserAnswersInput
@@ -7768,13 +7826,11 @@ export namespace Prisma {
     id?: string
     userId: string
     quizId: string
-    collectedInfo: string
     answers?: AnswerUncheckedCreateNestedManyWithoutUserAnswersInput
   }
 
   export type UserAnswersUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutUserAnswersNestedInput
     quiz?: QuizUpdateOneRequiredWithoutUserAnswersNestedInput
     answers?: AnswerUpdateManyWithoutUserAnswersNestedInput
@@ -7784,7 +7840,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     quizId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     answers?: AnswerUncheckedUpdateManyWithoutUserAnswersNestedInput
   }
 
@@ -7792,19 +7847,16 @@ export namespace Prisma {
     id?: string
     userId: string
     quizId: string
-    collectedInfo: string
   }
 
   export type UserAnswersUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserAnswersUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     quizId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -7820,6 +7872,11 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type QuizListRelationFilter = {
@@ -7846,18 +7903,27 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    host?: SortOrder
+    password?: SortOrder
+    collectedInfo?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    host?: SortOrder
+    password?: SortOrder
+    collectedInfo?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    host?: SortOrder
+    password?: SortOrder
+    collectedInfo?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7876,6 +7942,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -8101,11 +8175,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type UserAnswersScalarRelationFilter = {
     is?: UserAnswersWhereInput
     isNot?: UserAnswersWhereInput
@@ -8145,14 +8214,6 @@ export namespace Prisma {
     userAnswersId?: SortOrder
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type AnswerListRelationFilter = {
     every?: AnswerWhereInput
     some?: AnswerWhereInput
@@ -8167,21 +8228,18 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     quizId?: SortOrder
-    collectedInfo?: SortOrder
   }
 
   export type UserAnswersMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     quizId?: SortOrder
-    collectedInfo?: SortOrder
   }
 
   export type UserAnswersMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     quizId?: SortOrder
-    collectedInfo?: SortOrder
   }
 
   export type QuizCreateNestedManyWithoutHostInput = {
@@ -8214,6 +8272,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type QuizUpdateManyWithoutHostNestedInput = {
@@ -8450,10 +8512,6 @@ export namespace Prisma {
     push?: string | string[]
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type UserAnswersUpdateOneRequiredWithoutAnswersNestedInput = {
     create?: XOR<UserAnswersCreateWithoutAnswersInput, UserAnswersUncheckedCreateWithoutAnswersInput>
     connectOrCreate?: UserAnswersCreateOrConnectWithoutAnswersInput
@@ -8546,6 +8604,11 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -8572,6 +8635,14 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedEnumQuizResultStateFilter<$PrismaModel = never> = {
@@ -8702,19 +8773,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type QuizCreateWithoutHostInput = {
     id?: string
     name: string
@@ -8751,7 +8809,6 @@ export namespace Prisma {
 
   export type UserAnswersCreateWithoutUserInput = {
     id?: string
-    collectedInfo: string
     quiz: QuizCreateNestedOneWithoutUserAnswersInput
     answers?: AnswerCreateNestedManyWithoutUserAnswersInput
   }
@@ -8759,7 +8816,6 @@ export namespace Prisma {
   export type UserAnswersUncheckedCreateWithoutUserInput = {
     id?: string
     quizId: string
-    collectedInfo: string
     answers?: AnswerUncheckedCreateNestedManyWithoutUserAnswersInput
   }
 
@@ -8826,13 +8882,15 @@ export namespace Prisma {
     id?: StringFilter<"UserAnswers"> | string
     userId?: StringFilter<"UserAnswers"> | string
     quizId?: StringFilter<"UserAnswers"> | string
-    collectedInfo?: StringFilter<"UserAnswers"> | string
   }
 
   export type UserCreateWithoutHostedQuizzesInput = {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     userAnswers?: UserAnswersCreateNestedManyWithoutUserInput
   }
 
@@ -8840,6 +8898,9 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     userAnswers?: UserAnswersUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -8850,7 +8911,6 @@ export namespace Prisma {
 
   export type UserAnswersCreateWithoutQuizInput = {
     id?: string
-    collectedInfo: string
     user: UserCreateNestedOneWithoutUserAnswersInput
     answers?: AnswerCreateNestedManyWithoutUserAnswersInput
   }
@@ -8858,7 +8918,6 @@ export namespace Prisma {
   export type UserAnswersUncheckedCreateWithoutQuizInput = {
     id?: string
     userId: string
-    collectedInfo: string
     answers?: AnswerUncheckedCreateNestedManyWithoutUserAnswersInput
   }
 
@@ -8919,6 +8978,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
     userAnswers?: UserAnswersUpdateManyWithoutUserNestedInput
   }
 
@@ -8926,6 +8988,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
     userAnswers?: UserAnswersUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -9042,7 +9107,6 @@ export namespace Prisma {
 
   export type UserAnswersCreateWithoutAnswersInput = {
     id?: string
-    collectedInfo: string
     user: UserCreateNestedOneWithoutUserAnswersInput
     quiz: QuizCreateNestedOneWithoutUserAnswersInput
   }
@@ -9051,7 +9115,6 @@ export namespace Prisma {
     id?: string
     userId: string
     quizId: string
-    collectedInfo: string
   }
 
   export type UserAnswersCreateOrConnectWithoutAnswersInput = {
@@ -9072,7 +9135,6 @@ export namespace Prisma {
 
   export type UserAnswersUpdateWithoutAnswersInput = {
     id?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutUserAnswersNestedInput
     quiz?: QuizUpdateOneRequiredWithoutUserAnswersNestedInput
   }
@@ -9081,13 +9143,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     quizId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserCreateWithoutUserAnswersInput = {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     hostedQuizzes?: QuizCreateNestedManyWithoutHostInput
   }
 
@@ -9095,6 +9159,9 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    host: boolean
+    password: string
+    collectedInfo: string
     hostedQuizzes?: QuizUncheckedCreateNestedManyWithoutHostInput
   }
 
@@ -9179,6 +9246,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
     hostedQuizzes?: QuizUpdateManyWithoutHostNestedInput
   }
 
@@ -9186,6 +9256,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    host?: BoolFieldUpdateOperationsInput | boolean
+    password?: StringFieldUpdateOperationsInput | string
+    collectedInfo?: StringFieldUpdateOperationsInput | string
     hostedQuizzes?: QuizUncheckedUpdateManyWithoutHostNestedInput
   }
 
@@ -9268,7 +9341,6 @@ export namespace Prisma {
   export type UserAnswersCreateManyUserInput = {
     id?: string
     quizId: string
-    collectedInfo: string
   }
 
   export type QuizUpdateWithoutHostInput = {
@@ -9307,7 +9379,6 @@ export namespace Prisma {
 
   export type UserAnswersUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     quiz?: QuizUpdateOneRequiredWithoutUserAnswersNestedInput
     answers?: AnswerUpdateManyWithoutUserAnswersNestedInput
   }
@@ -9315,20 +9386,17 @@ export namespace Prisma {
   export type UserAnswersUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     quizId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     answers?: AnswerUncheckedUpdateManyWithoutUserAnswersNestedInput
   }
 
   export type UserAnswersUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     quizId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserAnswersCreateManyQuizInput = {
     id?: string
     userId: string
-    collectedInfo: string
   }
 
   export type QuestionAndAnswerCreateManyQuizInput = {
@@ -9344,7 +9412,6 @@ export namespace Prisma {
 
   export type UserAnswersUpdateWithoutQuizInput = {
     id?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutUserAnswersNestedInput
     answers?: AnswerUpdateManyWithoutUserAnswersNestedInput
   }
@@ -9352,14 +9419,12 @@ export namespace Prisma {
   export type UserAnswersUncheckedUpdateWithoutQuizInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
     answers?: AnswerUncheckedUpdateManyWithoutUserAnswersNestedInput
   }
 
   export type UserAnswersUncheckedUpdateManyWithoutQuizInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    collectedInfo?: StringFieldUpdateOperationsInput | string
   }
 
   export type QuestionAndAnswerUpdateWithoutQuizInput = {

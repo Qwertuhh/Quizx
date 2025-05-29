@@ -34,6 +34,9 @@ model User {
   email         String        @unique
   hostedQuizzes Quiz[]        @relation("QuizHost")
   userAnswers   UserAnswers[]
+  host          Boolean
+  password      String
+  collectedInfo String
 }
 
 model Quiz {
@@ -77,11 +80,10 @@ model Answer {
 }
 
 model UserAnswers {
-  id            String   @id @default(uuid())
-  userId        String
-  quizId        String
-  user          User     @relation(fields: [userId], references: [id])
-  quiz          Quiz     @relation(fields: [quizId], references: [id])
-  collectedInfo String
-  answers       Answer[]
+  id      String   @id @default(uuid())
+  userId  String
+  quizId  String
+  user    User     @relation(fields: [userId], references: [id])
+  quiz    Quiz     @relation(fields: [quizId], references: [id])
+  answers Answer[]
 }

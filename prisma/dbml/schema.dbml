@@ -8,6 +8,9 @@ Table User {
   email String [unique, not null]
   hostedQuizzes Quiz [not null]
   userAnswers UserAnswers [not null]
+  host Boolean [not null]
+  password String [not null]
+  collectedInfo String [not null]
 }
 
 Table Quiz {
@@ -56,7 +59,6 @@ Table UserAnswers {
   quizId String [not null]
   user User [not null]
   quiz Quiz [not null]
-  collectedInfo String [not null]
   answers Answer [not null]
 }
 
